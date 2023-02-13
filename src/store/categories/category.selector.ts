@@ -1,7 +1,8 @@
 import { createSelector } from 'reselect';
+import { DirectoryCategory } from '../../components/directory/directory.component';
 
 import { RootState } from '../store';
-import { CategoriesState } from './category.reducer';
+import { CategoriesState, MainCategoriesState } from './category.reducer';
 import { CategoryMap } from './category.types';
 
 const selectCategoryReducer = (state: RootState): CategoriesState =>
@@ -24,5 +25,22 @@ export const selectCategoriesMap = createSelector(
 
 export const selectCategoriesIsLoading = createSelector(
   [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+);
+const selectMainCategoryReducer = (state: RootState): MainCategoriesState =>
+  state.main_categories;
+
+export const selectMainCategories = createSelector(
+  [selectMainCategoryReducer],
+  (categoriesSlice) => categoriesSlice.main_categories
+);
+
+export const selectMainCategoriesMap = createSelector(
+  [selectMainCategories],
+  (main_categories): DirectoryCategory[] => main_categories
+);
+
+export const selectMainCategoriesIsLoading = createSelector(
+  [selectMainCategoryReducer],
   (categoriesSlice) => categoriesSlice.isLoading
 );

@@ -22,6 +22,7 @@ import {
   getDocs,
   QueryDocumentSnapshot,
 } from 'firebase/firestore';
+import { DirectoryCategory } from '../../components/directory/directory.component';
 
 import { Category } from '../../store/categories/category.types';
 
@@ -77,6 +78,15 @@ export const getCategoriesAndDocuments = async (): Promise<Category[]> => {
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(
     (docSnapshot) => docSnapshot.data() as Category
+  );
+};
+export const getMainCategoriesAndDocuments = async (): Promise<DirectoryCategory[]> => {
+  const collectionRef = collection(db, 'main_categories');
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.docs.map(
+    (docSnapshot) => docSnapshot.data() as DirectoryCategory
   );
 };
 
