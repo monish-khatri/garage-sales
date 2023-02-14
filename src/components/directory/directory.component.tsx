@@ -7,11 +7,12 @@ import { useSelector } from 'react-redux';
 import { selectMainCategoriesIsLoading, selectMainCategoriesMap } from '../../store/categories/category.selector';
 import Spinner from '../spinner/spinner.component';
 import { useState } from 'react';
+
 export type DirectoryCategory = {
   id: Key;
   title: string;
   imageUrl: string;
-  route: string;
+  slug: string;
 };
 const Directory = () => {
   const mainCategoriesMap = useSelector(selectMainCategoriesMap);

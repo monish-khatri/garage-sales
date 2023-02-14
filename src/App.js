@@ -6,7 +6,8 @@ import { Routes, Route } from 'react-router-dom';
 import Spinner from './components/spinner/spinner.component';
 import { checkUserSession } from './store/user/user.action';
 import { GlobalStyle } from './global.styles';
-import { fetchCategoriesStart, fetchMainCategoriesStart } from './store/categories/category.action';
+import { fetchMainCategoriesStart } from './store/categories/category.action';
+import ProductDetail from './components/product-detail/product-detail.component';
 
 const Navigation = lazy(() =>
   import('./routes/navigation/navigation.component')
@@ -34,6 +35,7 @@ const App = () => {
         <Route path='/' element={<Navigation />}>
           <Route index element={<Home />} />
           <Route path='shop/*' element={<Shop />} />
+          <Route path='shop/*/detail' element={<ProductDetail />} />
           <Route path='auth' element={<Authentication />} />
           <Route path='checkout' element={<Checkout />} />
         </Route>

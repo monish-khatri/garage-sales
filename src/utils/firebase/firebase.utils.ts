@@ -72,7 +72,7 @@ export const addCollectionAndDocuments = async <T extends ObjectToAdd>(
 };
 
 export const getCategoriesAndDocuments = async (): Promise<Category[]> => {
-  const collectionRef = collection(db, 'categories');
+  const collectionRef = collection(db, 'sub_categories');
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
@@ -81,7 +81,7 @@ export const getCategoriesAndDocuments = async (): Promise<Category[]> => {
   );
 };
 export const getMainCategoriesAndDocuments = async (): Promise<DirectoryCategory[]> => {
-  const collectionRef = collection(db, 'main_categories');
+  const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);

@@ -12,6 +12,7 @@ export type CategoryItem = {
   imageUrl: string;
   name: string;
   price: number;
+  description: string;
 };
 
 export type Category = {
