@@ -40,7 +40,7 @@ const Navigation = () => {
                 SIGN OUT
               </NavLink>
               <NavLink to='/add-product'>
-                + Sell
+                + SELL
               </NavLink>
             </Fragment>
           ) : (

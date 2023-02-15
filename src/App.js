@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Spinner from './components/spinner/spinner.component';
 import { checkUserSession } from './store/user/user.action';
 import { GlobalStyle } from './global.styles';
-import { fetchMainCategoriesStart } from './store/categories/category.action';
+import { fetchCategoriesStart, fetchMainCategoriesStart } from './store/categories/category.action';
 import ProductDetail from './components/product-detail/product-detail.component';
 import AddProductForm from './components/add-product-form/add-product-form.component';
 
@@ -24,6 +24,9 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(checkUserSession());
+  }, []);
+  useEffect(() => {
+    dispatch(fetchCategoriesStart());
   }, []);
   useEffect(() => {
     dispatch(fetchMainCategoriesStart());

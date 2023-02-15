@@ -9,6 +9,7 @@ import {
   googleSignInStart,
   emailSignInStart,
 } from '../../store/user/user.action';
+import { useNavigate } from 'react-router-dom';
 
 const defaultFormFields = {
   email: '',
@@ -23,11 +24,11 @@ const SignInForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
+  const navigate = useNavigate()
 
   const signInWithGoogle = async () => {
     dispatch(googleSignInStart());
   };
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

@@ -9,7 +9,13 @@ import {
 
 import CategoryPreview from '../../components/category-preview/category-preview.component';
 import Spinner from '../../components/spinner/spinner.component';
-const CategoriesPreview = () => {
+import CategoryPreviewHome from '../../components/category-preview/category-preview-home.component';
+
+type CategoriesPreviewProps = {
+  from: string;
+};
+
+const CategoriesPreview: FC<CategoriesPreviewProps> = ({ from }) => {
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
   return (
@@ -20,8 +26,16 @@ const CategoriesPreview = () => {
         Object.keys(categoriesMap).map((title) => {
           const products = categoriesMap[title];
           return (
-            <CategoryPreview key={title} title={title} category={title} products={products} />
-          );
+            <Fragment>
+              {
+              from == 'home' ? (
+                <CategoryPreviewHome key={title} title={title} category={title} products={products} />
+              ) : (
+                <CategoryPreview key={title} title={title} category={title} products={products} />
+              )
+            }
+            </Fragment>
+          )
         })
       )}
     </Fragment>

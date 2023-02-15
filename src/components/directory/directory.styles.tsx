@@ -6,3 +6,7 @@ export const DirectoryContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
+export const PageTitle = styled.h1`
+  width: 100%;
+  text-align: center;
+`;

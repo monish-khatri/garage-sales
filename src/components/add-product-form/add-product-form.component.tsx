@@ -103,7 +103,7 @@ const AddProductForm = () => {
           name='description'
           value={description}
         />
-        <Button type='submit'>Sign Up</Button>
+        <Button type='submit'>Add Product</Button>
       </form>
     </AddProductContainer>
   );
