@@ -1,51 +1,46 @@
 import { FC, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-
-import { selectCartItems } from '../../store/cart/cart.selector';
-import { addItemToCart } from '../../store/cart/cart.action';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { CategoryItem } from '../../store/categories/category.types';
 
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import {
+  Footer,
+  Name,
+  Price,
   ProductDetailContainer,
- 
 } from './product-detail.styles';
 type CategoryRouteParams = {
-  product: string;
+  category: string;
+  productId: string;
 };
 
-const ProductDetail = () => {
-  const { product } = useParams<
+const ProductDetail: FC<CategoryRouteParams> = () => {
+  const { productId, category } = useParams<
     keyof CategoryRouteParams
   >() as CategoryRouteParams;
-  console.log(product);
-  // const { name, price, imageUrl,category } = product;
-  // const dispatch = useDispatch();
-  // const cartItems = useSelector(selectCartItems);
-  // const navigate = useNavigate();
+  const location = useLocation()
+  const product = location.state as CategoryItem
+  const { description, imageUrl, name, price } = product;
 
+  const navigate = useNavigate();
+  const backHandler = useCallback(() => {
+    navigate(-1);
+  }, []);
   return (
     <ProductDetailContainer>
-      Hello
-      {/* <img src={imageUrl} alt={`${name}`} />
+     <img src={imageUrl} alt={`${name}`} />
       <Footer>
         <Name>{name}</Name>
         <Price>${price}</Price>
       </Footer>
+      {description}
       <Button
         buttonType={BUTTON_TYPE_CLASSES.inverted}
-        onClick={addProductToCart}
+        onClick={backHandler}
       >
-        Add to cart
+        Back
       </Button>
-      <Button
-        buttonType={BUTTON_TYPE_CLASSES.inverted}
-        onClick={showProductDetail}
-      >
-        Product Details
-      </Button> */}
     </ProductDetailContainer>
   );
 };

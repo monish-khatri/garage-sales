@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { selectCartItems } from '../../store/cart/cart.selector';
 import { addItemToCart } from '../../store/cart/cart.action';
@@ -16,10 +16,11 @@ import {
 } from './product-card.styles';
 
 type ProductCardProps = {
+  category: string;
   product: CategoryItem;
 };
 
-const ProductCard: FC<ProductCardProps> = ({ product }) => {
+const ProductCard: FC<ProductCardProps> = ({ category, product }) => {
   const { name, price, imageUrl,id } = product;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
@@ -27,7 +28,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
   const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
   const showProductDetail = useCallback(() => {
-    navigate(`${id}/detail`);
+    navigate(`/shop/${category}/${id}/detail`,{state: product});
   }, []);
   return (
     <ProductCartContainer>
