@@ -35,9 +35,14 @@ const Navigation = () => {
           <NavLink to='/shop'>SHOP</NavLink>
 
           {currentUser ? (
-            <NavLink as='span' onClick={signOutUser}>
-              SIGN OUT
-            </NavLink>
+            <Fragment>
+              <NavLink as='span' onClick={signOutUser}>
+                SIGN OUT
+              </NavLink>
+              <NavLink to='/add-product'>
+                + Sell
+              </NavLink>
+            </Fragment>
           ) : (
             <NavLink to='/auth'>SIGN IN</NavLink>
           )}

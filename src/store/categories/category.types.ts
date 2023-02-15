@@ -13,6 +13,7 @@ export type CategoryItem = {
   name: string;
   price: number;
   description: string;
+  category: string,
 };
 
 export type Category = {

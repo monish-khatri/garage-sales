@@ -21,10 +21,12 @@ import {
   query,
   getDocs,
   QueryDocumentSnapshot,
+  updateDoc,
+  arrayUnion,
 } from 'firebase/firestore';
 import { DirectoryCategory } from '../../components/directory/directory.component';
 
-import { Category } from '../../store/categories/category.types';
+import { Category, CategoryItem } from '../../store/categories/category.types';
 
 const firebaseConfig = {
   apiKey: "AIzaSyASk8X40DU8jKx1NfflRprN4GcctS38M0E",
@@ -70,12 +72,26 @@ export const addCollectionAndDocuments = async <T extends ObjectToAdd>(
   await batch.commit();
   console.log('done');
 };
+export const addProductToDocument = async (
+  collectionKey: string,
+  documentKey: string,
+  object: CategoryItem
+): Promise<void> => {
+  const collectionRef = doc(db, collectionKey, documentKey);
+
+  // Atomically add a new product to the "items" array field.
+  await updateDoc(collectionRef, {
+      items: arrayUnion(object)
+  });
+  console.log('done');
+};
 
 export const getCategoriesAndDocuments = async (): Promise<Category[]> => {
   const collectionRef = collection(db, 'sub_categories');
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
+
   return querySnapshot.docs.map(
     (docSnapshot) => docSnapshot.data() as Category
   );

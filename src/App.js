@@ -8,6 +8,7 @@ import { checkUserSession } from './store/user/user.action';
 import { GlobalStyle } from './global.styles';
 import { fetchMainCategoriesStart } from './store/categories/category.action';
 import ProductDetail from './components/product-detail/product-detail.component';
+import AddProductForm from './components/add-product-form/add-product-form.component';
 
 const Navigation = lazy(() =>
   import('./routes/navigation/navigation.component')
@@ -37,6 +38,7 @@ const App = () => {
           <Route path='shop/*' element={<Shop />} />
           <Route path='shop/:category/:productId/detail' element={<ProductDetail />} />
           <Route path='auth' element={<Authentication />} />
+          <Route path='add-product' element={<AddProductForm />} />
           <Route path='checkout' element={<Checkout />} />
         </Route>
       </Routes>
