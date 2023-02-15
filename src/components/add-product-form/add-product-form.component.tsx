@@ -5,7 +5,7 @@ import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 
 import { AddProductContainer } from './add-product-form.styles';
-import { addProductToDocument } from '../../utils/firebase/firebase.utils';
+import { createProductToDocument } from '../../utils/firebase/firebase.utils';
 import { CategoryItem } from '../../store/categories/category.types';
 import { selectMainCategoriesIsLoading, selectMainCategoriesMap } from '../../store/categories/category.selector';
 import Spinner from '../spinner/spinner.component';
@@ -37,7 +37,7 @@ const AddProductForm = () => {
     event.preventDefault();
 
     try {
-      addProductToDocument('sub_categories', category, formFields);
+      createProductToDocument('sub_categories', category, formFields);
       resetFormFields();
       alert('Product Added Successfully');
     } catch (error) {

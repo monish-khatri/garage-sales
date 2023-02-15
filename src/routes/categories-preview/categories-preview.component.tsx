@@ -26,7 +26,7 @@ const CategoriesPreview: FC<CategoriesPreviewProps> = ({ from }) => {
         Object.keys(categoriesMap).map((title) => {
           const products = categoriesMap[title];
           return (
-            <Fragment>
+            <Fragment key={title}>
               {
               from == 'home' ? (
                 <CategoryPreviewHome key={title} title={title} category={title} products={products} />

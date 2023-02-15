@@ -72,16 +72,22 @@ export const addCollectionAndDocuments = async <T extends ObjectToAdd>(
   await batch.commit();
   console.log('done');
 };
-export const addProductToDocument = async (
+export const createProductToDocument = async (
   collectionKey: string,
   documentKey: string,
   object: CategoryItem
 ): Promise<void> => {
-  const collectionRef = doc(db, collectionKey, documentKey);
-
+  const documentRef = doc(db, collectionKey, documentKey);
+  let maxId: CategoryItem;
+  maxId = object
+  const docSnap = await getDoc(documentRef);
+  if (docSnap.exists()) {
+    const items = docSnap.data().items;
+    maxId = items.reduce((max :CategoryItem, current:CategoryItem) => max.id > current.id ? max : current);
+  }
   // Atomically add a new product to the "items" array field.
-  await updateDoc(collectionRef, {
-      items: arrayUnion(object)
+  await updateDoc(documentRef, {
+      items: arrayUnion({...object, id:maxId.id + 1})
   });
   console.log('done');
 };
