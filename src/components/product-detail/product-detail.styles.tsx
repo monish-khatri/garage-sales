@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProductDetailContainer = styled.div`
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -9,7 +9,7 @@ export const ProductDetailContainer = styled.div`
   position: relative;
 
   img {
-    width: 100%;
+    width: 425px;
     height: 95%;
     object-fit: cover;
     margin-bottom: 5px;
@@ -66,6 +66,7 @@ export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  margin-top:20px;
 `;
 
 export const Name = styled.span`
