@@ -193,39 +193,6 @@ export const SUB_CATEGORIES = [
     ],
   },
   {
-    title: 'books',
-    items: [
-      {
-        id: 1,
-        name: 'Final Offer',
-        imageUrl: 'https://cdn01.sapnaonline.com/product_media/9780349433479/md_9780349433479_020220231356355.jpg',
-        description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        price: 500,
-      },
-      {
-        id: 2,
-        name: 'Lockwood & Co',
-        imageUrl: 'https://cdn01.sapnaonline.com/product_media/9780241613122/md_9780241613122_250120231346179.jpg',
-        description: "by Jonathan Stroud (Author), Penguin (Publisher).",
-        price: 383,
-      },
-      {
-        id: 3,
-        name: 'Friends With Benefits : The India Us Story',
-        imageUrl: 'https://cdn01.sapnaonline.com/product_media/9789356295902/md_9789356295902_060220231214079.jpg',
-        description: "About the Book : Friends with Benefits: The India-US Story Thirty years ago, when veteran journalist Seema Sirohi first arrived in Washington DC, bilateral relations between India and the United States of America were at their worst. In the late 1980s and 1990s, the political spotlight shone favourably upon Pakistan and China. For the leader of the free world, India didnt matter. The years leading up to the twenty-first century saw the US-and the multilateral organizations of which it was a member-force India to jump through endless bureaucratic hoops. Indias nuclear tests in 1998 were the final nail in its coffin, as far as the.",
-        price: 600,
-      },
-      {
-        id: 4,
-        name: 'Badass Habits : Cultivate The Awareness Boundaries And Daily Upgrades You Need To Make Them Stick',
-        imageUrl: 'https://cdn01.sapnaonline.com/product_media/9781529367157/md_9781529367157_020220231400231.jpg',
-        description: "At SapnaOnline.com we are working towards bringing our retail experience to the web and we strive to uphold this prestige by serving our customers better.",
-        price: 250,
-      },
-    ],
-  },
-  {
     title: 'pets',
     items: [
       {
@@ -292,12 +259,6 @@ export const CATEGORY = [
   },
   {
     id: 6,
-    title: 'Books',
-    slug: 'books',
-    imageUrl: 'https://i.ibb.co/R70vBrQ/books.png',
-  },
-  {
-    id: 7,
     title: 'Pets',
     slug: 'pets',
     imageUrl: 'https://i.ibb.co/R70vBrQ/pets.png',
