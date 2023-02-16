@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const ProductDetailContainer = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 500px;
   align-items: center;
   position: relative;
 
@@ -72,7 +72,11 @@ export const Name = styled.span`
   width: 90%;
   margin-bottom: 15px;
 `;
+export const Label = styled.span`
+  width: 10%;
+  margin-bottom: 15px;
+`;
 
 export const Price = styled.span`
-  width: 10%;
+  width: 90%;
 `;

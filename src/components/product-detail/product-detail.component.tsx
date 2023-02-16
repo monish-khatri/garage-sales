@@ -6,6 +6,7 @@ import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import {
   Footer,
+  Label,
   Name,
   Price,
   ProductDetailContainer,
@@ -31,10 +32,17 @@ const ProductDetail: FC<CategoryRouteParams> = () => {
     <ProductDetailContainer>
      <img src={imageUrl} alt={`${name}`} />
       <Footer>
-        <Name>{name}</Name>
+        <Label>Price:</Label>
         <Price>${price}</Price>
       </Footer>
-      {description}
+      <Footer>
+        <Label>Name:</Label>
+        <Name>{name}</Name>
+      </Footer>
+      <Footer>
+        <Label>Description:</Label>
+        <Name>{description}</Name>
+      </Footer>
       <Button
         buttonType={BUTTON_TYPE_CLASSES.base}
         onClick={backHandler}
