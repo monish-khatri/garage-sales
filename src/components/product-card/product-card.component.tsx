@@ -49,6 +49,11 @@ const ProductCard: FC<ProductCardProps> = ({ category, product }) => {
       >
         Product Details
       </Button>
+      <Button
+        buttonType={BUTTON_TYPE_CLASSES.inverted}
+      >
+        Chat
+      </Button>
     </ProductCartContainer>
   );
 };

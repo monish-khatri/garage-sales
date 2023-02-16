@@ -17,10 +17,9 @@ export const ProductDetailContainer = styled.div`
 
   button {
     margin: 2px;
-    width: 80%;
+    width: 20%;
     opacity: 0.7;
-    position: relative;
-    bottom: 132px;
+    margin-top: 25px;
   }
 
   &:hover {

@@ -36,7 +36,7 @@ const ProductDetail: FC<CategoryRouteParams> = () => {
       </Footer>
       {description}
       <Button
-        buttonType={BUTTON_TYPE_CLASSES.inverted}
+        buttonType={BUTTON_TYPE_CLASSES.base}
         onClick={backHandler}
       >
         Back

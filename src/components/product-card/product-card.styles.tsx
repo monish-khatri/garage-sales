@@ -17,10 +17,11 @@ export const ProductCartContainer = styled.div`
 
   button {
     margin: 2px;
-    width: 80%;
+    width: 64%;
     opacity: 0.7;
     position: relative;
-    bottom: 132px;
+    bottom: 143px;
+    height: 35px;
   }
 
   &:hover {
